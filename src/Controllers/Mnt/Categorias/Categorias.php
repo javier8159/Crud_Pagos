@@ -1,6 +1,5 @@
 <?php
 namespace Controllers\Mnt\Categorias;
-
 use Controllers\PublicController;
 use Views\Renderer;
 /*
@@ -9,6 +8,7 @@ use Views\Renderer;
   `catnom` VARCHAR(45) NULL,
   `catest` CHAR(3) NULL DEFAULT 'ACT',
 */
+
 class Categorias extends PublicController
  {
     public function run(): void 
