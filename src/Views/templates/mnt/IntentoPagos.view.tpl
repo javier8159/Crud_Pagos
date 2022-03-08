@@ -21,10 +21,10 @@
             <td>{{monto}}</td>
             <td>{{fecha_vencimiento}}</td>
              <td>{{estado}}</td>
-            <td >
-                <a type="button"  href="index.php?page=mnt.intentopagos.intentopago&mode=UPD&ipid={{ipid}}">Editar</a>
+            <td>
+                <a href="index.php?page=mnt.intentopagos.intentopago&mode=UPD&ipid={{ipid}}">Editar</a>
                  &nbsp;
-                <a type="button" href="index.php?page=mnt.intentopagos.intentopago&mode=DEL&ipid={{ipid}}">Eliminar</a>
+                <a href="index.php?page=mnt.intentopagos.intentopago&mode=DEL&ipid={{ipid}}">Eliminar</a>
             </td>
         </tr>
     {{endfor intentopagos}}

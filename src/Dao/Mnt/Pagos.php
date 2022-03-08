@@ -52,7 +52,7 @@ class Pagos extends Table
     }
     public static function eliminarPago($ipid)
     {
-        $sqlstr = "DELETE FROM intentospagos where ipid=:ipid;";
+        $sqlstr = "DELETE FROM intentopagos where ipid=:ipid;";
         return self::executeNonQuery(
             $sqlstr,
             array(
