@@ -56,7 +56,7 @@ class IntentoPago extends PublicController
     private function handlePost()
     {
         \Utilities\ArrUtils::mergeFullArrayTo($_POST, $this->_viewData);
-        if (!(isset($_SESSION["ntentopago_crsxToken"])
+        if (!(isset($_SESSION["intentopago_crsxToken"])
             && $_SESSION["intentoPago_crsxToken"] == $this->_viewData["crsxToken"])
             ) {
             unset($_SESSION["intentopago_crsxToken"]);
@@ -98,11 +98,12 @@ class IntentoPago extends PublicController
                     break;
                 case 'UPD':
                     $result = \Dao\Mnt\Pagos::actualizarPago(
-                        $this->_viewData["ipid"],
+                       
                         $this->_viewData["cliente"],
                         $this->_viewData["monto"],
                         $this->_viewData["fecha_vencimiento"],
-                        $this->_viewData["estado"]
+                        $this->_viewData["estado"],
+                        $this->_viewData["ipid"]
                     );
                     if ($result) {
                         \Utilities\Site::redirectToWithMsg(

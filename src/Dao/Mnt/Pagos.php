@@ -24,8 +24,7 @@ class Pagos extends Table
 
     public static function nuevoPago($cliente, $monto,$fecha_vencimiento,$estado)
     {
-        $sqlstr= "INSERT INTO intentopagos (cliente, monto,fecha_vencimiento,estado) 
-        values (:cliente,:monto,:fecha_vencimiento,:estado);";
+        $sqlstr= "INSERT INTO intentopagos (cliente, monto,fecha_vencimiento,estado) values (:cliente, :monto, :fecha_vencimiento, :estado);";
         return self::executeNonQuery(
             $sqlstr,
             array(
@@ -37,7 +36,7 @@ class Pagos extends Table
         );
     }
 
-    public static function actualizarPago($ipid,$cliente, $monto,$fecha_vencimiento,$estado)
+    public static function actualizarPago($cliente, $monto,$fecha_vencimiento,$estado, $ipid)
     {
         $sqlstr = "UPDATE intentopagos set cliente=:cliente, monto=:monto,fecha_vencimiento=:fecha_vencimiento,estado = :estado where ipid=:ipid";
         return self::executeNonQuery(
