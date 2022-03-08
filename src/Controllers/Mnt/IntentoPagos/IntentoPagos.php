@@ -1,5 +1,5 @@
 <?php
-namespace Controllers\Mnt\IntentosPago;
+namespace Controllers\Mnt\IntentoPagos;
 use Controllers\PublicController;
 use Views\Renderer;
 /*

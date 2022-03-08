@@ -1,5 +1,5 @@
 <?php
-namespace Controllers\Mnt\IntentosPago;
+namespace Controllers\Mnt\IntentoPagos;
 
 use Controllers\PublicController;
 use Views\Renderer;
@@ -45,7 +45,7 @@ class IntentoPago extends PublicController
                 0
             );
             \Utilities\Site::redirectToWithMsg(
-                'index.php?page=mnt.IntentoPagos.IntentoPagos',/*cambiar direccion */
+                'index.php?page=mnt.intentopagos.intentopagos',/*cambiar direccion */
                 'Sucedio un error al procesar la página.'
             );
         }
@@ -56,12 +56,12 @@ class IntentoPago extends PublicController
     private function handlePost()
     {
         \Utilities\ArrUtils::mergeFullArrayTo($_POST, $this->_viewData);
-        if (!(isset($_SESSION["IntentoPago_crsxToken"])
-            && $_SESSION["IntentoPago_crsxToken"] == $this->_viewData["crsxToken"])
+        if (!(isset($_SESSION["ntentopago_crsxToken"])
+            && $_SESSION["intentoPago_crsxToken"] == $this->_viewData["crsxToken"])
             ) {
-            unset($_SESSION["IntentoPago_crsxToken"]);
+            unset($_SESSION["intentopago_crsxToken"]);
             \Utilities\Site::redirectToWithMsg(
-                'index.php?page=mnt.IntentoPagos.IntentoPagos',     /*cambiar direccion */
+                'index.php?page=mnt.intentopagos.intentopagos',     /*cambiar direccion */
                 'Ocurrio un error, no se puede procesar el formulario.'
             );
         }
@@ -79,7 +79,7 @@ class IntentoPago extends PublicController
         if (isset($this->_viewData["errors"]) && count($this->_viewData["errors"]) > 0) {
 
         } else {
-            unset($_SESSION["IntentoPago_crsxToken"]);
+            unset($_SESSION["intentopago_crsxToken"]);
             switch ($this->_viewData["mode"]) {
                 case 'INS':
                     # code...
@@ -91,7 +91,7 @@ class IntentoPago extends PublicController
                     );
                     if ($result) {
                         \Utilities\Site::redirectToWithMsg(
-                            'index.php?page=mnt.IntentoPagos.IntentoPagos', /*cambiar direccion */
+                            'index.php?page=mnt.intentopagos.intentopagos', /*cambiar direccion */
                             "¡Pago guardado satisfactoriamente!"
                         );
                     }
@@ -106,7 +106,7 @@ class IntentoPago extends PublicController
                     );
                     if ($result) {
                         \Utilities\Site::redirectToWithMsg(
-                            'index.php?page=mnt.IntentoPagos.IntentoPagos',
+                            'index.php?page=mnt.intentopagos.intentopagos',
                             "¡Pago actualizado satisfactoriamente!"
                         );
                     }
@@ -117,7 +117,7 @@ class IntentoPago extends PublicController
                     );
                     if ($result) {
                         \Utilities\Site::redirectToWithMsg(
-                            'index.php?page=mnt.IntentoPagos.IntentoPagos',
+                            'index.php?page=mnt.intentopagos.intentopagos',
                             "¡Pago eliminada satisfactoriamente!"
                         );
                     }
@@ -155,8 +155,8 @@ class IntentoPago extends PublicController
                 'selected',
                 $this->_viewData['estado']
             );
-        $this->_viewData["crsxToken"] = md5(time() . "Intentopago");
-        $_SESSION["IntentoPago_crsxToken"] = $this->_viewData["crsxToken"];
+        $this->_viewData["crsxToken"] = md5(time() . "intentopago");
+        $_SESSION["intentopago_crsxToken"] = $this->_viewData["crsxToken"];
     }
     public function run(): void
     {

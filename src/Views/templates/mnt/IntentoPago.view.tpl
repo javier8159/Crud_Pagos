@@ -1,7 +1,7 @@
 <h1>{{modeDsc}}</h1>
 <hr>
-<section class="container-m">
-    <form action="index.php?page=mnt.IntentoPagos.IntentoPago&mode={{mode}}&ipid={{ipid}}" method="post">
+<section class="container-fluid">
+    <form action="index.php?page=mnt.intentopagos.intentopago&mode={{mode}}&ipid={{ipid}}" method="post">
         <input type="hidden" name="crsxToken" value="{{crsxToken}}" />
         {{ifnot isInsert}}
         <fieldset>
@@ -13,6 +13,7 @@
             <label class="col-5" for="cliente">Cliente</label>
             <input type="text" class="col-7" id="cliente" name="cliente" placeholder="" value="{{cliente}}" </fieldset>
             <fieldset class="row flex-center align-center">
+               
                 <label class="col-5" for="monto">Monto</label>
                 <input type="text" class="col-7" id="monto" name="monto" placeholder="" value="{{monto}}" </fieldset>
                 <fieldset class="row flex-center align-center">
@@ -40,7 +41,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 window.location.assign(
-                    "index.php?page=mnt.IntentoPagos.IntentoPagos"
+                    "index.php?page=mnt.intentopagos.intentopagos"
                 );
             });
         });
