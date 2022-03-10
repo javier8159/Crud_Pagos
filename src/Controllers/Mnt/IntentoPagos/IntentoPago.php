@@ -57,7 +57,7 @@ class IntentoPago extends PublicController
     {
         \Utilities\ArrUtils::mergeFullArrayTo($_POST, $this->_viewData);
         if (!(isset($_SESSION["intentopago_crsxToken"])
-            && $_SESSION["intentoPago_crsxToken"] == $this->_viewData["crsxToken"])
+            && $_SESSION["intentopago_crsxToken"] == $this->_viewData["crsxToken"])
             ) {
             unset($_SESSION["intentopago_crsxToken"]);
             \Utilities\Site::redirectToWithMsg(
